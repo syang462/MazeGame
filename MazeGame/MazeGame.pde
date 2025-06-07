@@ -92,6 +92,8 @@ HVirtualCoupling  s;
 
 /* Wall Setup */
 int seconds = 0;
+
+int secondsStart = 0;
   
 FBox[] mazeWalls = new FBox[12];
 
@@ -185,7 +187,9 @@ void draw(){
   background(255);
   world.draw(); 
   
-  
+  if(firstStart == false){
+    seconds = millis() / 1000 - secondsStart;
+  }
   
   fill(0,0,255);
   textSize(32);
@@ -212,7 +216,7 @@ void draw(){
   }else{
       
       if(firstStart){
-        seconds = millis() / 1000;
+        secondsStart = millis() / 1000;
         firstStart = false;
       }
       
